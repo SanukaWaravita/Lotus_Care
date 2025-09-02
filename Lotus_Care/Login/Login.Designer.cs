@@ -34,7 +34,6 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.LoginBtn = new System.Windows.Forms.Button();
-            this.ClearBtn = new System.Windows.Forms.Button();
             this.LeaveBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -81,7 +80,7 @@
             // 
             // LoginBtn
             // 
-            this.LoginBtn.Location = new System.Drawing.Point(29, 276);
+            this.LoginBtn.Location = new System.Drawing.Point(92, 291);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(118, 72);
             this.LoginBtn.TabIndex = 2;
@@ -89,23 +88,15 @@
             this.LoginBtn.UseVisualStyleBackColor = true;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
-            // ClearBtn
-            // 
-            this.ClearBtn.Location = new System.Drawing.Point(176, 276);
-            this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(118, 72);
-            this.ClearBtn.TabIndex = 2;
-            this.ClearBtn.Text = "CLEAR";
-            this.ClearBtn.UseVisualStyleBackColor = true;
-            // 
             // LeaveBtn
             // 
-            this.LeaveBtn.Location = new System.Drawing.Point(337, 276);
+            this.LeaveBtn.Location = new System.Drawing.Point(278, 291);
             this.LeaveBtn.Name = "LeaveBtn";
             this.LeaveBtn.Size = new System.Drawing.Size(118, 72);
             this.LeaveBtn.TabIndex = 2;
             this.LeaveBtn.Text = "LEAVE";
             this.LeaveBtn.UseVisualStyleBackColor = true;
+            this.LeaveBtn.Click += new System.EventHandler(this.LeaveBtn_Click);
             // 
             // Login
             // 
@@ -113,7 +104,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 409);
             this.Controls.Add(this.LeaveBtn);
-            this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -137,7 +127,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button LoginBtn;
-        private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Button LeaveBtn;
     }
 }

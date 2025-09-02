@@ -32,74 +32,55 @@ namespace Lotus_Care
             string username = txtUsername.Text.Trim(); // Username textbox
             string password = txtPassword.Text.Trim(); // Password textbook
 
-            string query = "SELECT Role FROM Users WHERE Username=@username AND Password=@password";
-
-            SqlCommand cmd = null;
-
-            if (username == "" || password == "")
+            try
             {
-                MessageBox.Show("Username Or Password cannot be empty!");
+                var AuthService = new Logic.AuthService(Program.ConnectionString);
+                string userRole = AuthService.ValidateUser(username, password);
+
+                if (userRole == null)
+                {
+                    MessageBox.Show("Invalid Username or Password");
+                    return; // Early exit technique to avoid running unnecessary code
+                }
+
+                this.Hide();
+
+                if (userRole == "Admin")
+                {
+                    AdministratorDashboard adminDash = new AdministratorDashboard();
+                    adminDash.ShowDialog();
+                }
+                else if (userRole == "Doctor")
+                {
+                    DoctorDashboard docDash = new DoctorDashboard();
+                    docDash.ShowDialog();
+                }
+                else if (userRole == "Nurse")
+                {
+                    NurseDashboard nurseDash = new NurseDashboard();
+                    nurseDash.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Unknown role: " + userRole);
+                }
+
+                this.Close();
             }
-            else
+            catch (Exception ex) 
             {
-                try
-                {
-                    cmd = new SqlCommand(query, con);
-
-                    // Using Parameters to prevent SQL injection
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    con.Open();
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    string userRole = "";
-
-                    if (reader.Read())
-                    {
-                        userRole = reader["Role"].ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username or password!");
-                    }
-
-                    reader.Close();
-
-                    if (userRole == "Admin")
-                    {
-                        AdministratorDashboard adminDash = new AdministratorDashboard();
-                        adminDash.Show();
-                        this.Close();
-                    }
-                    else if (userRole == "Doctor")
-                    {
-                        DoctorDashboard docDash = new DoctorDashboard();
-                        docDash.Show();
-                        this.Close();
-                    }
-                    else if (userRole == "Nurse")
-                    {
-                        NurseDashboard nurseDash = new NurseDashboard();
-                        nurseDash.Show();
-                        this.Close();
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-                finally
-                {
-                    if (cmd != null)
-                    {
-                        cmd.Dispose();
-                    }
-                    con.Close();
-                }
+                MessageBox.Show("Error: " + ex.Message);
             }
-        }   
+            finally
+            {
+                txtUsername.Clear();
+                txtPassword.Clear();
+            }
+        }
+
+        private void LeaveBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
