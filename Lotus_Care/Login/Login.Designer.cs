@@ -76,14 +76,14 @@
             this.txtPassword.Location = new System.Drawing.Point(267, 191);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 22);
-            this.txtPassword.TabIndex = 1;
+            this.txtPassword.TabIndex = 2;
             // 
             // LoginBtn
             // 
             this.LoginBtn.Location = new System.Drawing.Point(92, 291);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(118, 72);
-            this.LoginBtn.TabIndex = 2;
+            this.LoginBtn.TabIndex = 3;
             this.LoginBtn.Text = "LOGIN";
             this.LoginBtn.UseVisualStyleBackColor = true;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
@@ -93,7 +93,7 @@
             this.LeaveBtn.Location = new System.Drawing.Point(278, 291);
             this.LeaveBtn.Name = "LeaveBtn";
             this.LeaveBtn.Size = new System.Drawing.Size(118, 72);
-            this.LeaveBtn.TabIndex = 2;
+            this.LeaveBtn.TabIndex = 4;
             this.LeaveBtn.Text = "LEAVE";
             this.LeaveBtn.UseVisualStyleBackColor = true;
             this.LeaveBtn.Click += new System.EventHandler(this.LeaveBtn_Click);
