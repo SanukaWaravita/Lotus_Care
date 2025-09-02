@@ -85,8 +85,20 @@
     <Compile Include="Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nurse\NurseDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nurse\NurseDashboard.Designer.cs">
+      <DependentUpon>NurseDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administrator\AdministratorDashboard.resx">
+      <DependentUpon>AdministratorDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\DoctorDashboard.resx">
+      <DependentUpon>DoctorDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,7 +134,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Nurse\" />
     <Folder Include="Receptionist\" />
   </ItemGroup>
   <ItemGroup>

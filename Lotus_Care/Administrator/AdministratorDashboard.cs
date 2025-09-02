@@ -16,5 +16,10 @@ namespace Lotus_Care.Administrator
         {
             InitializeComponent();
         }
+
+        private void AdministratorDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

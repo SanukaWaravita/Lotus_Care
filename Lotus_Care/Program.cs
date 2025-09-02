@@ -14,7 +14,7 @@ namespace Lotus_Care
         /// 
 
         public static string ConnectionString =
-            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\New folder (4)\Lotus_Care\Lotus_Care\LotusCareDatabase.mdf"";Integrated Security=True";
+            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Lotus\Lotus_Care\Lotus_Care\LotusCareDatabase.mdf;Integrated Security=True";
 
         [STAThread]
         static void Main()

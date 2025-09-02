@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Lotus_Care.Administrator;
+using Lotus_Care.Doctor;
+using Lotus_Care.Nurse;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,45 +35,71 @@ namespace Lotus_Care
             string query = "SELECT Role FROM Users WHERE Username=@username AND Password=@password";
 
             SqlCommand cmd = null;
-            try
+
+            if (username == "" || password == "")
             {
-                cmd = new SqlCommand(query, con);
-
-                // Using Parameters to prevent SQL injection
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
-
-                con.Open();
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                string userRole = "";
-
-                if (reader.Read())
-                {
-                    userRole = reader["Role"].ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid username or password!");
-                }
-
-                reader.Close();
-
+                MessageBox.Show("Username Or Password cannot be empty!");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                if (cmd != null)
+                try
                 {
-                    cmd.Dispose();
+                    cmd = new SqlCommand(query, con);
+
+                    // Using Parameters to prevent SQL injection
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    con.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    string userRole = "";
+
+                    if (reader.Read())
+                    {
+                        userRole = reader["Role"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password!");
+                    }
+
+                    reader.Close();
+
+                    if (userRole == "Admin")
+                    {
+                        AdministratorDashboard adminDash = new AdministratorDashboard();
+                        adminDash.Show();
+                        this.Close();
+                    }
+                    else if (userRole == "Doctor")
+                    {
+                        DoctorDashboard docDash = new DoctorDashboard();
+                        docDash.Show();
+                        this.Close();
+                    }
+                    else if (userRole == "Nurse")
+                    {
+                        NurseDashboard nurseDash = new NurseDashboard();
+                        nurseDash.Show();
+                        this.Close();
+                    }
+
                 }
-                con.Close();
-                con.Dispose();
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (cmd != null)
+                    {
+                        cmd.Dispose();
+                    }
+                    con.Close();
+                }
             }
-        }
+        }   
     }
 }
