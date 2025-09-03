@@ -21,5 +21,11 @@ namespace Lotus_Care.Administrator
         {
 
         }
+
+        private void UsersBtn_Click(object sender, EventArgs e)
+        {
+            Users users = new Users();
+            users.Show();
+        }
     }
 }

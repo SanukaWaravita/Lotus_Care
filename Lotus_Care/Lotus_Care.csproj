@@ -67,6 +67,18 @@
     <Compile Include="Administrator\AdministratorDashboard.Designer.cs">
       <DependentUpon>AdministratorDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrator\SelectedUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\SelectedUserDetails.Designer.cs">
+      <DependentUpon>SelectedUserDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\DoctorDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administrator\AdministratorDashboard.resx">
       <DependentUpon>AdministratorDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\SelectedUserDetails.resx">
+      <DependentUpon>SelectedUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorDashboard.resx">
       <DependentUpon>DoctorDashboard.cs</DependentUpon>
