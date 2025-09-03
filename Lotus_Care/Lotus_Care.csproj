@@ -79,6 +79,18 @@
     <Compile Include="Administrator\Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonForms\Patients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\Patients.Designer.cs">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForms\SelectedPatientDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\SelectedPatientDetails.Designer.cs">
+      <DependentUpon>SelectedPatientDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\DoctorDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrator\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForms\Patients.resx">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForms\SelectedPatientDetails.resx">
+      <DependentUpon>SelectedPatientDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorDashboard.resx">
       <DependentUpon>DoctorDashboard.cs</DependentUpon>

@@ -72,6 +72,7 @@
             this.PatientsBtn.Size = new System.Drawing.Size(88, 53);
             this.PatientsBtn.TabIndex = 0;
             this.PatientsBtn.UseVisualStyleBackColor = true;
+            this.PatientsBtn.Click += new System.EventHandler(this.PatientsBtn_Click);
             // 
             // AssignmentBtn
             // 

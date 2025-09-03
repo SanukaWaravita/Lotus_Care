@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lotus_Care.CommonForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,12 @@ namespace Lotus_Care.Administrator
         {
             Users users = new Users();
             users.Show();
+        }
+
+        private void PatientsBtn_Click(object sender, EventArgs e)
+        {
+            Patients patients = new Patients();
+            patients.Show();
         }
     }
 }

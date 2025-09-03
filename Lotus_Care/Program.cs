@@ -1,4 +1,5 @@
 ﻿using Lotus_Care.Administrator;
+using Lotus_Care.CommonForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,9 @@ namespace Lotus_Care
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            //Application.Run(new Login());
             //Application.Run(new Users());
+            Application.Run(new SelectedPatientDetails());
         }
     }
 }
