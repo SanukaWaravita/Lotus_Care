@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.PatientsDataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,22 +42,24 @@
             this.PatientsDataGridView.RowTemplate.Height = 24;
             this.PatientsDataGridView.Size = new System.Drawing.Size(683, 250);
             this.PatientsDataGridView.TabIndex = 0;
+            this.PatientsDataGridView.Click += new System.EventHandler(this.PatientsDataGridView_Click);
             // 
-            // button1
+            // AddBtn
             // 
-            this.button1.Location = new System.Drawing.Point(284, 358);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 52);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "New Patient";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddBtn.Location = new System.Drawing.Point(284, 358);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(188, 52);
+            this.AddBtn.TabIndex = 1;
+            this.AddBtn.Text = "New Patient";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // Patients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.PatientsDataGridView);
             this.Name = "Patients";
             this.Text = "Patients";
@@ -70,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView PatientsDataGridView;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddBtn;
     }
 }

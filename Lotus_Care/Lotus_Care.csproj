@@ -79,6 +79,13 @@
     <Compile Include="Administrator\Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonCode\Enums.cs" />
+    <Compile Include="CommonForms\DoctorNurse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\DoctorNurse.Designer.cs">
+      <DependentUpon>DoctorNurse.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonForms\Patients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +125,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receptionist\ReceptionistDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\ReceptionistDashboard.Designer.cs">
+      <DependentUpon>ReceptionistDashboard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administrator\AdministratorDashboard.resx">
       <DependentUpon>AdministratorDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrator\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForms\DoctorNurse.resx">
+      <DependentUpon>DoctorNurse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonForms\Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
@@ -170,9 +186,7 @@
       <DependentUpon>LotusCareDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Receptionist\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

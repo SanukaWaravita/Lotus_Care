@@ -1,4 +1,5 @@
-﻿using Lotus_Care.CommonForms;
+﻿using Lotus_Care.CommonCode;
+using Lotus_Care.CommonForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,11 @@ namespace Lotus_Care.Administrator
 {
     public partial class AdministratorDashboard : Form
     {
-        public AdministratorDashboard()
+        private readonly UserRole _role;
+        public AdministratorDashboard(UserRole role)
         {
             InitializeComponent();
+            _role = role;
         }
 
         private void AdministratorDashboard_Load(object sender, EventArgs e)
@@ -31,7 +34,7 @@ namespace Lotus_Care.Administrator
 
         private void PatientsBtn_Click(object sender, EventArgs e)
         {
-            Patients patients = new Patients();
+            Patients patients = new Patients(_role);
             patients.Show();
         }
     }

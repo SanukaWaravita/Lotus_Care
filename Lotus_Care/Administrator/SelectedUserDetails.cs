@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lotus_Care.CommonCode;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace Lotus_Care.Administrator
     public partial class SelectedUserDetails : Form
     {
         Users parentform;
-        private readonly userFunction _Function;
+        private readonly RecordFunction _Function;
         readonly SqlConnection Con = new SqlConnection(Program.ConnectionString);
         public SelectedUserDetails(
             Users parent,
@@ -31,7 +32,7 @@ namespace Lotus_Care.Administrator
             String Gender, 
             String Email, 
             String Status,
-            userFunction Function)
+            RecordFunction Function)
         {
             InitializeComponent();
             parentform = parent;
@@ -47,7 +48,7 @@ namespace Lotus_Care.Administrator
             txtEmail.Text = Email;
             ComboStatus.Text = Status;
         }
-        public SelectedUserDetails(Users parent, userFunction Function)
+        public SelectedUserDetails(Users parent, RecordFunction Function)
         {
             InitializeComponent();
             parentform = parent;
@@ -55,13 +56,13 @@ namespace Lotus_Care.Administrator
         }
         private void SelectedUserDetails_Load(object sender, EventArgs e)
         {
-            if (_Function == userFunction.Add)
+            if (_Function == RecordFunction.Add)
             {
                 UpdateBtn.Visible = false;
                 DeleteBtn.Visible = false;
                 AddBtn.Visible = true;
             }
-            if (_Function != userFunction.Add)
+            if (_Function != RecordFunction.Add)
             {
                 UpdateBtn.Visible = true;
                 DeleteBtn.Visible = true;
@@ -116,7 +117,6 @@ namespace Lotus_Care.Administrator
                     cmd.ExecuteNonQuery();
                     Con.Close();
                     MessageBox.Show("Record Update Successfully");
-                    AdministratorDashboard adminDash = new AdministratorDashboard();
                     parentform?.DisplayUsers();
                     this.Close();
                 }

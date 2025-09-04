@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lotus_Care.CommonCode;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,11 +19,6 @@ namespace Lotus_Care.Administrator
         public Users()
         {
             InitializeComponent();
-        }
-        public enum userFunction
-        {
-            Add,
-            Update_Delete
         }
         private void Users_Load(object sender, EventArgs e)
         {
@@ -81,7 +77,7 @@ namespace Lotus_Care.Administrator
                     gender,
                     email,
                     status,
-                    userFunction.Update_Delete);
+                    RecordFunction.Update_Delete);
                 selectedUsers.Show();
             }
             catch (Exception ex)
@@ -92,7 +88,7 @@ namespace Lotus_Care.Administrator
 
         private void AddUsersBtn_Click(object sender, EventArgs e)
         {
-            SelectedUserDetails selectedUser = new SelectedUserDetails(this, userFunction.Add);
+            SelectedUserDetails selectedUser = new SelectedUserDetails(this, RecordFunction.Add);
             selectedUser.Show();
         }
     }

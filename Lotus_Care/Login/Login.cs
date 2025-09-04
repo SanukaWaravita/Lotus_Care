@@ -1,6 +1,8 @@
 ﻿using Lotus_Care.Administrator;
+using Lotus_Care.CommonCode;
 using Lotus_Care.Doctor;
 using Lotus_Care.Nurse;
+using Lotus_Care.Receptionist;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +19,7 @@ namespace Lotus_Care
     public partial class Login : Form
     {
         readonly SqlConnection con = new SqlConnection(Program.ConnectionString);
+        public UserRole UserRole { get; private set; } // Encapsulation
         public Login()
         {
             InitializeComponent();
@@ -35,36 +38,22 @@ namespace Lotus_Care
             try
             {
                 var AuthService = new Logic.AuthService(Program.ConnectionString);
-                string userRole = AuthService.ValidateUser(username, password);
+                string roleFromDb = AuthService.ValidateUser(username, password);
 
-                if (userRole == null)
+                if (string.IsNullOrEmpty(roleFromDb))
                 {
                     MessageBox.Show("Invalid Username or Password");
                     return; // Early exit technique to avoid running unnecessary code
                 }
 
-                this.Hide();
-
-                if (userRole == "Admin")
+                // CONVERT STRING FROM DB TO ENUM
+                if (!Enum.TryParse(roleFromDb, true, out UserRole parsedRole))
                 {
-                    AdministratorDashboard adminDash = new AdministratorDashboard();
-                    adminDash.ShowDialog();
+                    MessageBox.Show("Unknown role: " + roleFromDb);
+                    return;
                 }
-                else if (userRole == "Doctor")
-                {
-                    DoctorDashboard docDash = new DoctorDashboard();
-                    docDash.ShowDialog();
-                }
-                else if (userRole == "Nurse")
-                {
-                    NurseDashboard nurseDash = new NurseDashboard();
-                    nurseDash.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Unknown role: " + userRole);
-                }
-
+                UserRole = parsedRole; // Storing the role
+                this.DialogResult = DialogResult.OK; // Telling Program.cs that login succeeded
                 this.Close();
             }
             catch (Exception ex) 

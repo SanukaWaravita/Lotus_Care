@@ -159,6 +159,9 @@
             // ComboGender
             // 
             this.ComboGender.FormattingEnabled = true;
+            this.ComboGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
             this.ComboGender.Location = new System.Drawing.Point(261, 266);
             this.ComboGender.Name = "ComboGender";
             this.ComboGender.Size = new System.Drawing.Size(121, 24);
@@ -186,6 +189,7 @@
             this.UpdateBtn.TabIndex = 4;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // DeleteBtn
             // 
@@ -204,6 +208,7 @@
             this.AddBtn.TabIndex = 4;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // SelectedPatientDetails
             // 
